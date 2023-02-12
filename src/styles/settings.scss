@@ -1,0 +1,12 @@
+@use 'vuetify/settings' with (
+  $body-font-family: (Roboto, 'Noto Color Emoji', sans-serif)
+);
+
+// Fix for monospace Font.
+code,
+kbd,
+pre,
+samp,
+var {
+  font-family: 'Roboto Mono', monospace !important;
+}
