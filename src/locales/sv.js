@@ -1,21 +1,37 @@
 export default {
-  sv: {
-    appLayout: {
-      navigationDrawer: {
-        title: "Playthings",
-      },
+  components: {
+    navigationDrawer: {
+      aboutPageTitle: "Om sidan",
+      settingsPageTitle: "Inställningar",
+      themeTooltip: "Växla mörkt läge",
     },
-    helloWorld: {
-      homePageLink: "Homepage",
-      title: "Hello World!",
+    themeLightDark: {
+      tooltip: "Växla mörkt läge",
     },
-    homePage: {
-      helloWorldLink: "Hello World!",
-      title: "Homepage",
+    themeMenu: {
+      tooltip: "Välj ett färgtema",
+    },
+  },
+  pages: {
+    aboutPage: {
+      text: "Välkommen till mina experiment.",
+      title: "Playground",
+    },
+    loginPage: {
+      button: "Logga in",
+      defaultError: "Något gick fel",
+      password: "Lösenord",
+      title: "Playground",
+      username: "Användarnamn",
     },
     notFound: {
-      homePageLink: "Homepage",
+      aboutPageLink: "säkerhet",
+      text: "Ta mig tillbaka till {0}",
       title: "404",
-    }
+    },
+    settingsPage: {
+      themeLabel: "Ändra färgtema",
+      title: "Inställningar",
+    },
   },
 }

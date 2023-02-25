@@ -2,7 +2,7 @@ import "vuetify/styles"
 import { createVuetify } from "vuetify"
 import { aliases, mdi } from "vuetify/iconsets/mdi"
 import { sv } from "vuetify/locale"
-import dvs from "../themes/dvs"
+import { dvsLight, dvsDark } from "../themes"
 
 export default createVuetify({
   icons: {
@@ -18,12 +18,13 @@ export default createVuetify({
     messages: { sv },
   },
   theme: {
-    defaultTheme: "dvs",
+    defaultTheme: "dvs-dark",
     options: {
       customProperties: true,
     },
     themes: {
-      dvs,
+      "dvs-light": dvsLight,
+      "dvs-dark": dvsDark,
     },
   },
 })
