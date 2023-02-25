@@ -1,11 +1,14 @@
 import { createI18n } from "vue-i18n"
-import messages from "../locales/sv"
+import { en, sv } from "../locales"
 
 export default createI18n({
-  availableLocales: ["sv"],
-  fallbackLocale: "sv",
+  availableLocales: ["en", "sv"],
+  fallbackLocale: "en",
   globalInjection: true,
   legacy: false,
-  locale: "sv",
-  messages,
+  locale: "en",
+  messages: {
+    en,
+    sv,
+  },
 })

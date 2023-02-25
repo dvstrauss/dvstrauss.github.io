@@ -1,5 +1,6 @@
 @use 'vuetify/settings' with (
-  $body-font-family: (Roboto, 'Noto Color Emoji', sans-serif)
+  $body-font-family: (Roboto, 'Noto Color Emoji', sans-serif),
+  $tooltip-background-color: rgba(var(--v-theme-surface-variant), 1),
 );
 
 // Fix for monospace Font.
