@@ -1,0 +1,1 @@
+import{_ as r,o as l,c,w as a,V as n,a as t,b as s,t as o,d,e as u}from"./index-5547815a.js";const _={};function f(e,i){return l(),c(n,null,{default:a(()=>[t(d,null,{default:a(()=>[s(o(e.$t("pages.aboutPage.title")),1)]),_:1}),t(u,null,{default:a(()=>[s(o(e.$t("pages.aboutPage.text")),1)]),_:1})]),_:1})}const g=r(_,[["render",f]]);export{g as default};
