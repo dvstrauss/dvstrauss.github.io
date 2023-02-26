@@ -1,0 +1,34 @@
+name: Publish to github Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache yarn
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: care-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            care-yarn-
+
+      - name: build dist
+        run: |
+          yarn install
+          yarn build
+          cp dist/index.html dist/404.html
+
+      - name: publish dist
+        run: |
+          git checkout -B tmp
+          git add dist -f
+          git commit -m ":rocket: Publish"
+          git push origin `git subtree split --prefix dist tmp`:gh-pages --force
