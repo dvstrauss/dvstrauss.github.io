@@ -10,14 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Cache yarn
-        uses: actions/cache@v3
+      - uses: actions/setup-node@v3
         with:
-          path: node_modules
-          key: care-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            care-yarn-
+          cache: "yarn"
 
       - name: build dist
         run: |
