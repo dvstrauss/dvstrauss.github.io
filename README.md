@@ -1,14 +1,13 @@
 # Playground
-Have fun
+Just a repo where I test some things.
 
 https://dvstrauss.github.io/
 
 ## Adding more content
 * Add more content
-* Commit any changes you want to keep
-* Push to main or branch etc.
-
-If you also want to update the github page, run `./deploy.sh`
+* Make pull request
+* Merge to main
+* Wait for github Pages to get updated
 
 ## Explanation
-The branch `gh-pages` is a git subtree of the `dist` folder, and github Settings for Pages is set to use that branch as the page content.
+A github Action workflow runs on merge to main which creates a tmp branch with a generated `dist` folder and pushes it as a subtree to the `gh-pages` branch. That branch is used as the root folder for github Pages.
