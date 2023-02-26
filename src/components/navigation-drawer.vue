@@ -3,7 +3,7 @@
     permanent
     rail
   >
-    <v-list>
+    <v-list class="d-flex flex-column">
       <v-list-item
         v-for="(item, index) in items"
         :key="index"
@@ -16,6 +16,7 @@
           {{ item.tooltip }}
         </v-tooltip>
       </v-list-item>
+      <v-spacer></v-spacer>
       <theme-light-dark v-slot="{ on }">
         <v-list-item
           prepend-icon="mdi-theme-light-dark"
@@ -29,6 +30,14 @@
           </v-tooltip>
         </v-list-item>
       </theme-light-dark>
+      <v-list-item v-bind="settingsItem">
+        <v-tooltip
+          activator="parent"
+          location="end"
+        >
+          {{ settingsItem.tooltip }}
+        </v-tooltip>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -40,16 +49,22 @@ import ThemeLightDark from "./theme-light-dark.vue"
 
 const { t } = useI18n()
 
+const settingsItem = ref({
+  prependIcon: "mdi-cog",
+  to: { name: "settings-page" },
+  tooltip: t("components.navigationDrawer.settingsPageTitle"),
+})
 const items = ref([
   {
     prependIcon: "mdi-information",
     to: { name: "about-page" },
     tooltip: t("components.navigationDrawer.aboutPageTitle"),
   },
-  {
-    prependIcon: "mdi-cog",
-    to: { name: "settings-page" },
-    tooltip: t("components.navigationDrawer.settingsPageTitle"),
-  },
 ])
 </script>
+
+<style lang="scss" scoped>
+.v-list {
+  min-height: 100vh;
+}
+</style>
