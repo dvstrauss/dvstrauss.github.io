@@ -46,10 +46,11 @@
 <script setup>
 import { ref } from "vue"
 import { useI18n } from "vue-i18n"
-import { useRouter } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 import { useStore } from "vuex"
 
 const { t } = useI18n()
+const route = useRoute()
 const router = useRouter()
 const store = useStore()
 
@@ -61,7 +62,11 @@ function login() {
   store
     .dispatch("login", { username: username.value, password: password.value })
     .then(() => {
-      router.push({ name: "about-page" })
+      if(route.query.redirect) {
+        router.push(route.query.redirect)
+      } else {
+        router.push({ name: "about-page" })
+      }
     })
     .catch(error => {
       if(error.response.data.message) {

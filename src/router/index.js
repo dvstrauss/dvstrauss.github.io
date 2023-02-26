@@ -28,9 +28,12 @@ const routes = [
     name: "settings-page",
     component: () => import("../pages/settings-page.vue"),
     meta: {
-      navigationGuard: (_to, _from) => {
+      navigationGuard: (to, _from) => {
         if(!store.getters.isAuthenticated) {
-          return { name: "login-page" }
+          return {
+            name: "login-page",
+            query: { redirect: to.fullPath },
+          }
         }
       }
     },
